@@ -1,0 +1,287 @@
+{
+  "cascadeColors": true,
+  "colorBackground": false,
+  "palette": [
+    {
+      "id": "TDsLvsNUNAsQbfOIeF1QX",
+      "name": "Red",
+      "value": "#f50a0a"
+    },
+    {
+      "id": "YUA5Q0dTpWO-6rWPRiWW5",
+      "name": "Violet",
+      "value": "#e307f2"
+    },
+    {
+      "id": "07xo6umFnpGWDiwxNm-Qw",
+      "name": "Purple",
+      "value": "#5907ab"
+    },
+    {
+      "id": "u5c__4Hf2DRPD1xGwb5NK",
+      "name": "Blue",
+      "value": "#1607e9"
+    },
+    {
+      "id": "ciBRReXLFfHUWC9CTWdHH",
+      "name": "Light Blue",
+      "value": "#06ccf4"
+    },
+    {
+      "id": "tIK3-zTRj9AYizYAJQi2c",
+      "name": "Dark Green",
+      "value": "#013c15"
+    },
+    {
+      "id": "8I3m6G5gYkxjHg2T0S05h",
+      "name": "Green",
+      "value": "#40e704"
+    },
+    {
+      "id": "tY_hwY5nlKp0TINUH2P5y",
+      "name": "Yellow",
+      "value": "#d8e708"
+    },
+    {
+      "id": "vm9tRgrsYFPN1urxTkiF4",
+      "name": "Orange",
+      "value": "#f97901"
+    },
+    {
+      "id": "5Epwx10tApZe6IF8lV23f",
+      "name": "Lavender",
+      "value": "#baa4ff"
+    },
+    {
+      "id": "u4ffETaHeF81gHt1cW1Iz",
+      "name": "Coral",
+      "value": "#ff7f50"
+    },
+    {
+      "id": "cSv23qncuLhdCn3MjEVyh",
+      "name": "Peach",
+      "value": "#ff9f7f"
+    },
+    {
+      "id": "vuGfH4vF8ggfUA8R2_a7r",
+      "name": "Salmon",
+      "value": "#fa8072"
+    },
+    {
+      "id": "OGwrbcitPkGBVYf7Wzp8Q",
+      "name": "Gold",
+      "value": "#ffd700"
+    },
+    {
+      "id": "vfLiAggeb1BSFQDGOAqLV",
+      "name": "Amber",
+      "value": "#ffbf00"
+    },
+    {
+      "id": "GUakfjMK_f9-ts1DAR2g7",
+      "name": "Sky Blue",
+      "value": "#87ceeb"
+    },
+    {
+      "id": "4Dtb2OszsHwc4wmzFoE1x",
+      "name": "Teal",
+      "value": "#40e0d0"
+    },
+    {
+      "id": "Anl72ZqfJiMyfQSQbdtZ8",
+      "name": "Mint",
+      "value": "#98ff98"
+    },
+    {
+      "id": "QNZweVuryKxgatDoNAsGa",
+      "name": "Sage",
+      "value": "#9acd9a"
+    },
+    {
+      "id": "b401O-TENslKmV07E_O48",
+      "name": "Tan",
+      "value": "#d2b48c"
+    },
+    {
+      "id": "26-9SHGrslNUxMlCjwkGS",
+      "name": "Rose",
+      "value": "#ffb6c1"
+    },
+    {
+      "id": "-Wv_0U9b5SQR1YG0FA-iw",
+      "name": "Periwinkle",
+      "value": "#ccccff"
+    },
+    {
+      "id": "Zt10o2FMwNLxp0K7CKH77",
+      "name": "Powder Blue",
+      "value": "#b0c4de"
+    },
+    {
+      "id": "ivrHjUwyQRiNpC7RPv3Ts",
+      "name": "Light Gray",
+      "value": "#c0c0c0"
+    },
+    {
+      "id": "4_LC_lqeXIi4a10JFoz-c",
+      "name": "Soft Orange",
+      "value": "#ffa54f"
+    },
+    {
+      "id": "vpZd6OkkeYT_JPblG91BP",
+      "name": "Dusty Pink",
+      "value": "#d98f8f"
+    },
+    {
+      "id": "ei5KWx8HYspcv3VQBzu1k",
+      "name": "Soft Purple",
+      "value": "#dda0dd"
+    }
+  ],
+  "fileColors": [
+    {
+      "path": "Field Manual/Field Manual/1. Information Gathering",
+      "color": "TDsLvsNUNAsQbfOIeF1QX"
+    },
+    {
+      "path": "Field Manual/Field Manual/2. Pre-Exploitation",
+      "color": "YUA5Q0dTpWO-6rWPRiWW5"
+    },
+    {
+      "path": "Field Manual/Field Manual/3. Exploitation",
+      "color": "vm9tRgrsYFPN1urxTkiF4"
+    },
+    {
+      "path": "Field Manual/Field Manual/4. Post-Exploitation",
+      "color": "vuGfH4vF8ggfUA8R2_a7r"
+    },
+    {
+      "path": "Field Manual/Field Manual/5. Lateral Movement",
+      "color": "ciBRReXLFfHUWC9CTWdHH"
+    },
+    {
+      "path": "Field Manual/Field Manual/6. NetExec",
+      "color": "8I3m6G5gYkxjHg2T0S05h"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Establishing a Shell",
+      "color": "8I3m6G5gYkxjHg2T0S05h"
+    },
+    {
+      "path": "Study_Guide/Rabbit Holes",
+      "color": "TDsLvsNUNAsQbfOIeF1QX"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Active Directory Basics",
+      "color": "YUA5Q0dTpWO-6rWPRiWW5"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Breaching Active Directory",
+      "color": "TDsLvsNUNAsQbfOIeF1QX"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Linux Privilege Escalation",
+      "color": "vm9tRgrsYFPN1urxTkiF4"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Windows Privilege Escalation",
+      "color": "ciBRReXLFfHUWC9CTWdHH"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Windows Local Persistence",
+      "color": "YUA5Q0dTpWO-6rWPRiWW5"
+    },
+    {
+      "path": "Personal/Planning/Projects/Personal Projects",
+      "color": "5Epwx10tApZe6IF8lV23f"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Domain 4 - Attacks & Exploits",
+      "color": "8I3m6G5gYkxjHg2T0S05h"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Overview/1. Planning the Engagement.md",
+      "color": "tY_hwY5nlKp0TINUH2P5y"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Overview/5. Reporting.md",
+      "color": "TDsLvsNUNAsQbfOIeF1QX"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Overview/2. Information Gathering.md",
+      "color": "ciBRReXLFfHUWC9CTWdHH"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Overview/3. Attacks & Exploits.md",
+      "color": "8I3m6G5gYkxjHg2T0S05h"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/Overview/4. Post-Exploitation.md",
+      "color": "5Epwx10tApZe6IF8lV23f"
+    },
+    {
+      "path": "Personal/Planning/Projects/Personal Projects/Network & Security Administration/Obsidian.md",
+      "color": "OGwrbcitPkGBVYf7Wzp8Q"
+    },
+    {
+      "path": "Personal/Planning/Projects/Personal Projects/Network & Security Administration/Network Layout.md",
+      "color": "ciBRReXLFfHUWC9CTWdHH"
+    },
+    {
+      "path": "Personal/Planning/Projects/Personal Projects/Network & Security Administration",
+      "color": "4Dtb2OszsHwc4wmzFoE1x"
+    },
+    {
+      "path": "Personal/Planning/Projects/Personal Projects/Labs",
+      "color": "Anl72ZqfJiMyfQSQbdtZ8"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Lateral Movement and Pivoting",
+      "color": "GUakfjMK_f9-ts1DAR2g7"
+    },
+    {
+      "path": "Study_Guide/Python Notes",
+      "color": "ei5KWx8HYspcv3VQBzu1k"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms",
+      "color": "5Epwx10tApZe6IF8lV23f"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/OWASP Juice Shop",
+      "color": "QNZweVuryKxgatDoNAsGa"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/OWASP Top 10 - 2021",
+      "color": "4_LC_lqeXIi4a10JFoz-c"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Phish",
+      "color": "vpZd6OkkeYT_JPblG91BP"
+    },
+    {
+      "path": "Personal/Planning/Projects",
+      "color": "u4ffETaHeF81gHt1cW1Iz"
+    },
+    {
+      "path": "Personal/Planning/Projects/Knight's Gambit Security Project",
+      "color": "8I3m6G5gYkxjHg2T0S05h"
+    },
+    {
+      "path": "Personal/Planning",
+      "color": "OGwrbcitPkGBVYf7Wzp8Q"
+    },
+    {
+      "path": "Study_Guide/Pentest+ Notes/TryHackMe Rooms/Persisting Active Directory",
+      "color": "ivrHjUwyQRiNpC7RPv3Ts"
+    },
+    {
+      "path": "Personal/Meet-Ups/OWASP",
+      "color": "GUakfjMK_f9-ts1DAR2g7"
+    },
+    {
+      "path": "Field Manual/Field Manual",
+      "color": "GUakfjMK_f9-ts1DAR2g7"
+    }
+  ]
+}
