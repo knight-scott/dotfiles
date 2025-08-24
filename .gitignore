@@ -1,2 +1,41 @@
-# Ignore LiveSync sensitive data
-obsidian/plugins/obsidian-livesync/
+# git ignore template
+# Ignore everything
+*
+
+# But do not ignore these folders (allow tracking)
+!.gitignore
+!bash/
+!config/
+!face/
+!git/
+!README.md
+
+# Inside the config folder, ignore everything except some key folders
+config/*
+!config/autostart/
+!config/'Flipper Devices Inc'/
+!config/nvim/
+!config/obsidian/
+!config/Proton/
+!config/'Raspberry Pi'
+!config/Thunar/
+!config/xfce4/
+!config/yay/
+
+# Ignore cache, trash, temporary, and binary files inside config folders
+config/**/backup/
+config/**/backups/
+config/**/cache/
+config/**/swap/
+
+# Ignore personal or secret config files, e.g. local overrides
+*.local
+*.secret
+*.key
+
+# Ignore editor swap/temp files
+*.swp
+*.swo
+
+# Ignore SSH keys and related sensitive files explicitly (do NOT track your .ssh directory!)
+.ssh/

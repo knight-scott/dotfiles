@@ -1,6 +1,6 @@
 #!/bin/bash
-# install.sh - Installs and links.Dotfiles and configures Obsidian vault.
-# Symlinks dotfiles safely, backing up existing configs.
+# install.sh - Uses GNU Stow to manage dotfiles and configures Obsidian vault.
+# Stow creates symlinks from target directory back to organized package directories.
 # Sets up community plugins and special handling for Obsidian LiveSync plugin.
 
 set -euo pipefail
@@ -13,15 +13,86 @@ trap 'error_handler ${LINENO} $?' ERR
 DOTFILES_DIR="$HOME/.dotfiles"
 VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
 
-# List of dotfiles to symlink, format "source|destination"
-# Add more files here as your dotfiles grow.
-DOTFILES_TO_LINK=(
-    "$DOTFILES_DIR/bash/bashrc|$HOME/.bashrc"
-    "$DOTFILES_DIR/config/alacritty.yml|$HOME/.config/alacritty/alacritty.yml"
-    "$DOTFILES_DIR/config/nvim/init.vim|$HOME/.config/nvim/init.vim"
+# List of stow packages to install
+# Each package should have its files organized to mirror the target structure
+STOW_PACKAGES=(
+    "bash"
+    "alacritty"
+    "face"
+    "git" 
+    "nvim"
 )
 
-# link_file: Symlinks a source file to destination safely.
+# check_stow: Ensures GNU Stow is installed on the system
+check_stow() {
+    if ! command -v stow &> /dev/null; then
+        color_echo "$RED" "GNU Stow is not installed!"
+        color_echo "$CYAN" "Install it with:"
+        #color_echo "$CYAN" "  macOS: brew install stow"
+        #color_echo "$CYAN" "  Ubuntu/Debian: sudo apt install stow"
+        color_echo "$CYAN" "  Arch: sudo pacman -S stow"
+        #color_echo "$CYAN" "  RHEL/CentOS: sudo yum install stow"
+        exit 1
+    fi
+}
+
+# backup_conflicts: Backs up any existing files that would conflict with stow
+backup_conflicts() {
+    local package=$1
+    color_echo "$CYAN" "Checking for conflicts in package: $package"
+    
+    # Use stow --no to simulate and find conflicts
+    local conflicts
+    conflicts=$(stow --no --verbose=2 --target="$HOME" --dir="$DOTFILES_DIR" "$package" 2>&1 | grep "existing target is" || true)
+    
+    if [ -n "$conflicts" ]; then
+        color_echo "$YELLOW" "Found conflicts, backing up existing files..."
+        echo "$conflicts" | while read -r line; do
+            if [[ "$line" =~ existing\ target\ is\ (.+)\ but\ is ]]; then
+                local conflict_file="${BASH_REMATCH[1]}"
+                if [ -e "$conflict_file" ] && [ ! -L "$conflict_file" ]; then
+                    backup_if_exists "$conflict_file"
+                fi
+            fi
+        done
+    fi
+}
+
+# install_stow_package: Installs a single stow package with conflict handling
+install_stow_package() {
+    local package=$1
+    local package_dir="$DOTFILES_DIR/$package"
+    
+    if [ ! -d "$package_dir" ]; then
+        color_echo "$YELLOW" "Package directory $package_dir not found, skipping..."
+        return
+    fi
+    
+    color_echo "$CYAN" "Installing stow package: $package"
+    
+    # Check for and backup any conflicting files
+    backup_conflicts "$package"
+    
+    # Install the package with stow
+    stow --verbose=1 --target="$HOME" --dir="$DOTFILES_DIR" "$package"
+    
+    color_echo "$GREEN" "Installed package: $package"
+}
+
+# install_dotfiles: Uses stow to install all configured packages
+install_dotfiles() {
+    color_echo "$CYAN" "Installing dotfiles with GNU Stow..."
+    
+    check_stow
+    
+    for package in "${STOW_PACKAGES[@]}"; do
+        install_stow_package "$package"
+    done
+    
+    color_echo "$GREEN" "All dotfiles installed with Stow!"
+}
+
+# link_file: Symlinks a source file to destination safely (kept for Obsidian setup)
 # Backs up destination if it exists and is not already a symlink.
 link_file() {
     local src=$1
@@ -40,18 +111,6 @@ link_file() {
 
     ln -s "$src" "$dest"
     color_echo "$GREEN" "Linked $src → $dest"
-}
-
-# install_dotfiles: Iterates over DOTFILES_TO_LINK and symlinks each pair.
-# Splits string with '|' delimiter for source and destination paths.
-install_dotfiles() {
-    color_echo "$CYAN" "Linking general dotfiles..."
-    local IFS='|'
-    for entry in "${DOTFILES_TO_LINK[@]}"; do
-        read -r src dest <<< "$entry"
-        link_file "$src" "$dest"
-    done
-    color_echo "$GREEN" "General dotfiles installed!"
 }
 
 # install_obsidian: Sets up Obsidian vault plugins.
@@ -80,7 +139,7 @@ install_obsidian() {
     local live_dir="$VAULT_DIR/plugins/obsidian-livesync"
     checkdir "$live_dir"
     if [ ! -f "$live_dir/data.json" ]; then
-        cp "$DOTFILES_DIR/obsidian/default-livesync-data.json" "$live_dir/data.json"
+        cp -r "$DOTFILES_DIR/obsidian/plugins/default-livesync" "$live_dir"
         color_echo "$CYAN" "Applied default LiveSync config"
     else
         color_echo "$YELLOW" "LiveSync config already exists, skipping"
