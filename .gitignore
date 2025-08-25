@@ -1,51 +1,96 @@
-# .gitignore for Stow-based dotfiles structure
+# Secure .gitignore for Stow-based dotfiles
 
-# Track essential management files
-install.sh 
-lib.sh 
-README.md
+# === SECURITY: NEVER TRACK THESE ===
 
-# Track all stow packages
-bash/
-config/
-nvim/
-face/
-git/
-xfce4/
-thunar/
-# Add other package directories as needed
+# Browsers (sensitive data, large caches)
+chromium/
+google-chrome/
+firefox/
+BraveSoftware/
 
-# Track obsidian configs (handled separately from stow)
-obsidian/
+# Development tools (tokens, keys)  
+Code*OSS/
+VSCode/
+code-oss/
+discord/
+slack/
+docker/
+.docker/
 
-# Ignore cache, trash, temporary, and binary files
-**/backup/
-**/backups/
+# Cloud/sync (API keys)
+Dropbox/
+nextcloud/
+syncthing/
+rclone/
+restic/
+
+# System specific
+pulse/
+pipewire/
+dconf/
+monitors.xml
+user-dirs.*
+
+# === IGNORE SENSITIVE FILE PATTERNS EVERYWHERE ===
+
+# Credentials
+**/*token*
+**/*key*  
+**/*secret*
+**/*password*
+**/*credential*
+**/*.pem
+**/*.p12
+**/*.key
+**/*.crt
+**/*.csr
+
+# Caches and temporary files
 **/cache/
-**/swap/
 **/.cache/
+**/Cache/
 **/tmp/
 **/temp/
+**/logs/
+**/*.log
+**/*.pid
 
-# Ignore personal or secret files
-*.local
-*.secret
-*.key
-**/.ssh/
+# Session/state files
+**/sessions/
+**/state/
+**/*session*
+**/*history*
+**/*recent*
 
-# Ignore editor swap/temp files
+# Large binary files
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/databases/
+
+# Editor temp files  
 *.swp
 *.swo
 *~
 .*.swp
 .*.swo
 
-# Ignore OS files
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Ignore compiled/generated files
+# Compiled files
 *.pyc
 *.pyo
 __pycache__/
 node_modules/
+
+# Personal overrides
+*.local
+*.personal
+
+# Backup files
+*.backup
+*.bak
+*~
