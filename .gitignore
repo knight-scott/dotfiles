@@ -5,10 +5,14 @@
 # But do not ignore these folders or files (allow tracking)
 !.gitignore
 !bash/**
+!bash/.*
 !config/**
+!config/.*
 !face/**
+!face/.*
 !.git/**
 !git/**
+!git/.*
 !install.sh 
 !lib.sh 
 !README.md
@@ -16,8 +20,11 @@
 # Inside the config folder, ignore everything except some key folders
 config/*
 !config/autostart/**
+!config/autostart/.*
 !config/Flipper Devices Inc/**
+!config/Flipper Devices Inc/.*
 !config/nvim/**
+!config/nvim/.*
 !config/obsidian/**
 !config/Proton/**
 !config/Raspberry Pi/**
