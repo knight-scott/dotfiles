@@ -4,26 +4,26 @@
 
 # But do not ignore these folders or files (allow tracking)
 !.gitignore
-!bash/
-!config/
-!face/
-!.git/
-!git/
+!bash/**
+!config/**
+!face/**
+!.git/**
+!git/**
 !install.sh 
 !lib.sh 
 !README.md
 
 # Inside the config folder, ignore everything except some key folders
 config/*
-!config/autostart/
-!config/'Flipper Devices Inc'/
-!config/nvim/
-!config/obsidian/
-!config/Proton/
-!config/'Raspberry Pi'
-!config/Thunar/
-!config/xfce4/
-!config/yay/
+!config/autostart/**
+!config/Flipper Devices Inc/**
+!config/nvim/**
+!config/obsidian/**
+!config/Proton/**
+!config/Raspberry Pi/**
+!config/Thunar/**
+!config/xfce4/**
+!config/yay/**
 
 # Ignore cache, trash, temporary, and binary files inside config folders
 config/**/backup/
