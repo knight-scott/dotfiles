@@ -53,7 +53,44 @@ DANGEROUS_CONFIGS=(
     "pipewire"
 )
 
-# Function to check if config directory exists and is safe
+# Function to migrate home directory dotfiles to stow packages
+migrate_home_dotfiles() {
+    color_echo "$CYAN" "Checking home directory dotfiles..."
+    
+    for entry in "${HOME_DOTFILES[@]}"; do
+        local IFS=':'
+        read -r dotfile package <<< "$entry"
+        
+        local source_file="$HOME/$dotfile"
+        local package_dir="$DOTFILES_DIR/$package"
+        local dest_file="$package_dir/$dotfile"
+        
+        if [ ! -f "$source_file" ]; then
+            color_echo "$YELLOW" "$dotfile not found in home directory, skipping..."
+            continue
+        fi
+        
+        color_echo "$GREEN" "Migrating $dotfile to $package package..."
+        
+        # Create package directory
+        checkdir "$package_dir"
+        
+        # Copy the dotfile
+        cp "$source_file" "$dest_file"
+        
+        # Check for sensitive content
+        local sensitive_content
+        sensitive_content=$(grep -i -E "(token|key|password|secret)" "$dest_file" 2>/dev/null | head -3 || true)
+        
+        if [ -n "$sensitive_content" ]; then
+            color_echo "$YELLOW" "POTENTIAL SENSITIVE CONTENT found in $dotfile:"
+            echo "$sensitive_content"
+            color_echo "$YELLOW" "Review this file before committing to git!"
+        fi
+        
+        color_echo "$CYAN" "Added $dotfile to $package package"
+    done
+}
 check_and_migrate_config() {
     local app_name=$1
     local source_dir="$CONFIG_DIR/$app_name"
@@ -101,7 +138,43 @@ check_and_migrate_config() {
     fi
 }
 
-# Function to scan for unknown configs
+# Function to scan for unknown home directory dotfiles
+scan_home_dotfiles() {
+    color_echo "$CYAN" "Scanning for unknown dotfiles in home directory..."
+    
+    # Look for common dotfile patterns
+    for dotfile in "$HOME"/.*; do
+        if [ -f "$dotfile" ]; then
+            local filename
+            filename=$(basename "$dotfile")
+            
+            # Skip special files
+            case "$filename" in
+                "." | ".." | ".bash_history" | ".lesshst" | ".sudo_as_admin_successful" | ".cache" | ".local")
+                    continue
+                    ;;
+            esac
+            
+            # Check if it's already in our HOME_DOTFILES list
+            local is_known=false
+            for entry in "${HOME_DOTFILES[@]}"; do
+                local IFS=':'
+                read -r known_dotfile package <<< "$entry"
+                if [ "$filename" = "$known_dotfile" ]; then
+                    is_known=true
+                    break
+                fi
+            done
+            
+            if [ "$is_known" = false ]; then
+                local size
+                size=$(du -sh "$dotfile" | cut -f1)
+                color_echo "$YELLOW" "Unknown dotfile: $filename (size: $size)"
+                color_echo "$CYAN" "  Review manually: head '$dotfile'"
+            fi
+        fi
+    done
+}
 scan_unknown_configs() {
     color_echo "$CYAN" "Scanning for unknown config directories..."
     
@@ -145,6 +218,14 @@ main() {
     
     # First scan for unknown/potentially dangerous configs
     scan_unknown_configs
+    echo
+    
+    # Scan for unknown home dotfiles
+    scan_home_dotfiles
+    echo
+    
+    # Migrate home directory dotfiles
+    migrate_home_dotfiles
     echo
     
     # Migrate safe configs
