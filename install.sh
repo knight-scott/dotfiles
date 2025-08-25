@@ -17,10 +17,13 @@ VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
 # Each package should have its files organized to mirror the target structure
 STOW_PACKAGES=(
     "bash"
-    "alacritty"
     "face"
     "git" 
     "nvim"
+    "starship"
+    "fzf"
+    "bat"
+    "htop"
 )
 
 # check_stow: Ensures GNU Stow is installed on the system
