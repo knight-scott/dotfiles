@@ -1,51 +1,51 @@
-# git ignore template
-# Ignore everything
-*
+# .gitignore for Stow-based dotfiles structure
 
-# But do not ignore these folders or files (allow tracking)
-!.gitignore
-!bash/**
-!bash/.*
-!config/**
-!config/.*
-!face/**
-!face/.*
-!.git/**
-!git/**
-!git/.*
-!install.sh 
-!lib.sh 
-!README.md
+# Track essential management files
+install.sh 
+lib.sh 
+README.md
 
-# Inside the config folder, ignore everything except some key folders
-config/*
-!config/autostart/**
-!config/autostart/.*
-!config/Flipper Devices Inc/**
-!config/Flipper Devices Inc/.*
-!config/nvim/**
-!config/nvim/.*
-!config/obsidian/**
-!config/Proton/**
-!config/Raspberry Pi/**
-!config/Thunar/**
-!config/xfce4/**
-!config/yay/**
+# Track all stow packages
+bash/
+config/
+nvim/
+face/
+git/
+xfce4/
+thunar/
+# Add other package directories as needed
 
-# Ignore cache, trash, temporary, and binary files inside config folders
-config/**/backup/
-config/**/backups/
-config/**/cache/
-config/**/swap/
+# Track obsidian configs (handled separately from stow)
+obsidian/
 
-# Ignore personal or secret config files, e.g. local overrides
+# Ignore cache, trash, temporary, and binary files
+**/backup/
+**/backups/
+**/cache/
+**/swap/
+**/.cache/
+**/tmp/
+**/temp/
+
+# Ignore personal or secret files
 *.local
 *.secret
 *.key
+**/.ssh/
 
 # Ignore editor swap/temp files
 *.swp
 *.swo
+*~
+.*.swp
+.*.swo
 
-# Ignore SSH keys and related sensitive files explicitly (do NOT track your .ssh directory!)
-.ssh/
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore compiled/generated files
+*.pyc
+*.pyo
+__pycache__/
+node_modules/
