@@ -2,12 +2,15 @@
 # Ignore everything
 *
 
-# But do not ignore these folders (allow tracking)
+# But do not ignore these folders or files (allow tracking)
 !.gitignore
 !bash/
 !config/
 !face/
+!.git/
 !git/
+!install.sh 
+!lib.sh 
 !README.md
 
 # Inside the config folder, ignore everything except some key folders
