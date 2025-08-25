@@ -23,6 +23,7 @@ nextcloud/
 syncthing/
 rclone/
 restic/
+obsidian/plugins/obsidian-livesync/
 
 # System specific
 pulse/
