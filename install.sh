@@ -13,6 +13,10 @@ trap 'error_handler ${LINENO} $?' ERR
 DOTFILES_DIR="$HOME/.dotfiles"
 VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
 
+# === TODO ===
+# Make terminal agnostic by checking for terminal type 
+# Currently must move .bashrc with mv ~/.bashrc ~/.bashrc.bak
+
 # List of stow packages to install
 # Each package should have its files organized to mirror the target structure
 STOW_PACKAGES=(
@@ -40,6 +44,8 @@ check_stow() {
 }
 
 # backup_conflicts: Backs up any existing files that would conflict with stow
+# === TODO ===
+# Fix checks. Presence of .bashrc stops install
 backup_conflicts() {
     local package=$1
     color_echo "$CYAN" "Checking for conflicts in package: $package"
@@ -97,6 +103,9 @@ install_dotfiles() {
 
 # link_file: Symlinks a source file to destination safely (kept for Obsidian setup)
 # Backs up destination if it exists and is not already a symlink.
+# === TODO ===
+# Set up user interactions. If already a symlink, ask user to [S]kip or [R]eplace
+
 link_file() {
     local src=$1
     local dest=$2
@@ -142,6 +151,9 @@ install_obsidian() {
     local live_dir="$VAULT_DIR/plugins/obsidian-livesync"
     checkdir "$live_dir"
     if [ ! -f "$live_dir/data.json" ]; then
+        # debug - Print files to be copied. Comment out when done.
+        color_echo "$YELLOW" "$DOTFILES_DIR/obsidian/plugins/default-livesync/"*
+        # Copy default-livesync to obsidian-livesync
         cp -r "$DOTFILES_DIR/obsidian/plugins/default-livesync/"* "$live_dir/"
         color_echo "$CYAN" "Applied default LiveSync config"
     else
@@ -154,3 +166,10 @@ install_obsidian() {
 # === Main Execution ===
 install_dotfiles
 install_obsidian
+
+# === TODO ===
+# Make script interactive.
+# If called by setup.sh script, by-pass checks 
+# If run independently, check if a fresh install
+# If a fresh install, verify user is Ok with replacing any duplicates found
+# If NOT a fresh install, ask user to [S]kip or [R]eplace duplicates
