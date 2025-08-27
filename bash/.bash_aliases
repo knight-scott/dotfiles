@@ -13,6 +13,3 @@ alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 
 alias ping='ping -c 3'
-
-# Server connection
-alias server='ssh -p 1337 knight@192.168.86.34'
