@@ -142,7 +142,7 @@ install_obsidian() {
     local live_dir="$VAULT_DIR/plugins/obsidian-livesync"
     checkdir "$live_dir"
     if [ ! -f "$live_dir/data.json" ]; then
-        cp -r "$DOTFILES_DIR/obsidian/plugins/default-livesync/*" "$live_dir/"
+        cp -r "$DOTFILES_DIR/obsidian/plugins/default-livesync/"* "$live_dir/"
         color_echo "$CYAN" "Applied default LiveSync config"
     else
         color_echo "$YELLOW" "LiveSync config already exists, skipping"
