@@ -16,6 +16,7 @@ VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
 # === TODO ===
 # Make terminal agnostic by checking for terminal type 
 # Currently must move .bashrc with mv ~/.bashrc ~/.bashrc.bak
+# Add Unix versatility
 
 # List of stow packages to install
 # Each package should have its files organized to mirror the target structure
