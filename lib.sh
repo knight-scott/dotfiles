@@ -10,6 +10,8 @@ CYAN='\033[0;36m'    # Informational messages
 GREEN='\033[0;32m'   # Success messages
 YELLOW='\033[1;33m'  # Warnings (e.g., backup notices)
 RED='\033[0;31m'     # Errors
+DARKGREY='\033[1;30m'   # Bright black, appears as dark grey on most terminals
+BLUE='\033[1;34m'       # Bright/bold blue
 NC='\033[0m'         # No Color (reset)
 
 # color_echo: Print colored messages to terminal.
