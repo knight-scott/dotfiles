@@ -8,7 +8,7 @@
 # colors
 # source lib.sh for colors
 if [ -f ~/.dotfiles/lib.sh ]; then
-  source ~/.dotfiles/lib.sh
+  source <(grep '^[A-Z]*=' ~/.dotfiles/lib.sh)
 fi
 
 # source files
@@ -31,6 +31,7 @@ export EDITOR="vim"
 # enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
 
 # Alias definitions, if ~/.bash_aliases does not exist. 
 
