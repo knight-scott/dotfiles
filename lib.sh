@@ -55,6 +55,6 @@ backup_if_exists() {
     if [ -e "$target" ] && [ ! -L "$target" ]; then
         local backup="${target}.backup-$(date +%Y%m%d%H%M%S)"
         color_echo "$YELLOW" "Backing up existing $target to $backup"
-        mv "$target" "$backup"
+        sudo mv "$target" "$backup"
     fi
 }
