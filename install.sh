@@ -16,6 +16,18 @@ VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
 # === TODO ===
 # Make terminal agnostic by checking for terminal type 
 # Currently must move .bashrc with mv ~/.bashrc ~/.bashrc.bak
+preemptive_shell_backup() {
+    local files=(
+        "HOME/.bashrc"
+        "HOME/.bash_aliases"
+    )
+
+    for f in "${files[@]}"; do
+        if [[ -f "$f" && ! -L "$f" ]]; then
+            backup_if_exists "$f"
+        fi
+    done
+}
 # Add Unix versatility
 
 # List of stow packages to install
@@ -165,6 +177,7 @@ install_obsidian() {
 }
 
 # === Main Execution ===
+preemptive_shell_backup
 install_dotfiles
 install_obsidian
 
