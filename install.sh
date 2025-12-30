@@ -164,9 +164,32 @@ install_obsidian() {
     color_echo "$GREEN" "Obsidian setup complete!"
 }
 
+install_code_extensions() {
+    if ! command -v code >/dev/null 2>&1; then
+        color_echo "$CYAN" "[INFO] Installing VS Code extensions..."
+        return
+    fi
+
+    local ext_file="$HOME/.dotfiles/code/extensions.txt"
+
+    if [[ ! -f "$ext_file" ]]; then
+        color_echo "$YELLOW" "[WARN] No VS Code extensions file found"
+        return
+    fi
+
+    color_echo "$CYAN" "[INFO] Installing VS Code extensions..."
+
+    while read -r ext; do
+        [[ -z "$ext" || "$ext" =~ ^# ]] && continue
+        color_echo "$CYAN" "[INFO]  → Installing $ext"
+        code --install-extension "$ext" --force
+    done < "$ext_file"
+}
+
 # === Main Execution ===
 install_dotfiles
 install_obsidian
+install_code_extensions
 
 # === TODO ===
 # Make script interactive.

@@ -1,0 +1,16 @@
+amazonwebservices.aws-toolkit-vscode
+cweijan.dbclient-jdbc
+cweijan.vscode-mysql-client2
+davidanson.vscode-markdownlint
+golang.go
+llvm-vs-code-extensions.vscode-clangd
+ms-azuretools.vscode-containers
+ms-azuretools.vscode-docker
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-python-envs
+pkief.material-icon-theme
+redhat.java
+redhat.vscode-yaml
+rust-lang.rust-analyzer
+vscodevim.vim

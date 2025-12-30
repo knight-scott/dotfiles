@@ -44,3 +44,4 @@ fi
 shopt -s globstar
 export PATH="/usr/local/bin/:$PATH"
 complete -C "/usr/local/bin/aws_completer" aws
+eval "$(starship init bash)"
