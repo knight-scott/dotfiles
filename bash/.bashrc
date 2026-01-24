@@ -45,3 +45,6 @@ shopt -s globstar
 export PATH="/usr/local/bin/:$PATH"
 complete -C "/usr/local/bin/aws_completer" aws
 eval "$(starship init bash)"
+
+# Created by `pipx` on 2026-01-12 19:29:02
+export PATH="$PATH:/home/research/.local/bin"

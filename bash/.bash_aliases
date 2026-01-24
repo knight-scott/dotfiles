@@ -28,6 +28,7 @@ alias wifiup='sudo ip link set wlan0 up'
 alias wifidown='sudo ip link set wlan0 down'
 alias ethup='sudo ip link set eth0 up'
 alias ethdown='sudo ip link set eth0 down'
+alias vpn='protonvpn connect'
 
 # Quick network info
 alias myip='curl -s ifconfig.me'
