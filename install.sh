@@ -12,6 +12,17 @@ trap 'error_handler ${LINENO} $?' ERR
 # === Configuration ===
 DOTFILES_DIR="$HOME/.dotfiles"
 VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
+TMP_DIR="$(mktemp -d -t dotfiles-install-XXXX)"
+DIFF_DIR="$TMP_DIR/diffs"
+
+# === Temp Workspace === #
+mkdir -p "$DIFF_DIR"
+
+cleanup() {
+    rm -rf "$TMP_DIR"
+}
+
+trap cleanup EXIT
 
 # === TODO ===
 # Make terminal agnostic by checking for terminal type 
@@ -23,6 +34,7 @@ VAULT_DIR="$HOME/Documents/Obsidian Vault/.obsidian"
 STOW_PACKAGES=(
     "bash"
     "face"
+    "fastfetch"
     "git" 
     "nvim"
     "starship"
@@ -31,61 +43,112 @@ STOW_PACKAGES=(
     "htop"
 )
 
-# check_stow: Ensures GNU Stow is installed on the system
-check_stow() {
-    if ! command -v stow &> /dev/null; then
-        color_echo "$RED" "GNU Stow is not installed!"
-        color_echo "$CYAN" "Install it with:"
-        #color_echo "$CYAN" "  macOS: brew install stow"
-        #color_echo "$CYAN" "  Ubuntu/Debian: sudo apt install stow"
-        color_echo "$CYAN" "  Arch: sudo pacman -S stow"
-        #color_echo "$CYAN" "  RHEL/CentOS: sudo yum install stow"
-        exit 1
-    fi
-}
-
 # backup_conflicts: Backs up any existing files that would conflict with stow
 # === TODO ===
 # Fix checks. Presence of .bashrc stops install
-backup_conflicts() {
+# Check Fix 1. Checks for conflicts like .bashrc or .bash_aliases
+get_conflicts() {
     local package=$1
-    color_echo "$CYAN" "Checking for conflicts in package: $package"
-    
-    # Use stow --no to simulate and find conflicts
-    local conflicts
-    conflicts=$(stow --no --verbose=2 --target="$HOME" --dir="$DOTFILES_DIR" "$package" 2>&1 | grep "existing target is" || true)
-    
-    if [ -n "$conflicts" ]; then
-        color_echo "$YELLOW" "Found conflicts, backing up existing files..."
-        echo "$conflicts" | while read -r line; do
-            if [[ "$line" =~ existing\ target\ is\ (.+)\ but\ is ]]; then
-                local conflict_file="${BASH_REMATCH[1]}"
-                if [ -e "$conflict_file" ] && [ ! -L "$conflict_file" ]; then
-                    backup_if_exists "$conflict_file"
+
+    stow --no --verbose=1 \
+        --target="$HOME" \
+        --dir="$DOTFILES_DIR" \
+        "$package" 2>&1 |
+    awk '/cannot stow/ {
+        for (i=1; i<=NF; i++) {
+            if ($i == "target") {
+                print ENVIRON["HOME"] "/" $(i+1)
+            }
+        }
+    }'
+}
+
+# Generate diff files
+generate_diff() {
+    local src=$1    # dotfiles version
+    local dest=$2   # existing system file
+    local diff_out=$3
+
+    diff -u "$dest" "$src" > "$diff_out" || true
+}
+
+# Interactive Conflict Resolver
+resolve_conflict() {
+    local src=$1
+    local dest=$2
+    local rel_path="${dest#$HOME/}"
+    local diff_file="$DIFF_DIR/${rel_path//\//_}.diff"
+    local merged_tmp="$TMP_DIR/merged_$(basename "$dest")"
+
+    generate_diff "$src" "$dest" "$diff_file"
+
+    while true; do
+        color_echo "$YELLOW" "Conflict detected: $dest"
+        echo
+        color_echo "$CYAN" "[R]eplace [S]kip  [V]iew diff [M]erge [A]bort"
+        read -rp "> " choice
+
+        case "$choice" in
+            R|r)
+                backup_if_exists "$dest"
+                rm -f "$dest"
+                return 0 # proceed with stow
+                ;;
+            S|s)
+                color_echo "$CYAN" "Skipping $dest"
+                return 1 # skip file
+                ;;
+            V|v)
+                ${PAGER:-less} "$diff_file"
+                ;;
+            M|m)
+                if ! check_meld; then
+                    continue
                 fi
-            fi
-        done
-    fi
+                cp "$dest" "$merged_tmp"
+                meld "$merged_tmp" "$src"
+                color_echo "$CYAN" "Save merged file and press Enter to continue"
+                read -r
+
+                backup_if_exists "$dest"
+                cp "$merged_tmp" "$dest"
+                return 0
+                ;;
+            A|a)
+                color_echo "$RED" "Aborting install"
+                exit 1
+                ;;
+            *)
+                color_echo "$YELLOW" "Invalid choice"
+                ;;
+        esac
+    done
 }
 
 # install_stow_package: Installs a single stow package with conflict handling
 install_stow_package() {
     local package=$1
     local package_dir="$DOTFILES_DIR/$package"
-    
-    if [ ! -d "$package_dir" ]; then
-        color_echo "$YELLOW" "Package directory $package_dir not found, skipping..."
-        return
-    fi
-    
+
+    [ -d "$package_dir" ] || return
+
     color_echo "$CYAN" "Installing stow package: $package"
-    
-    # Check for and backup any conflicting files
-    backup_conflicts "$package"
-    
-    # Install the package with stow
+
+    # 1. Detect conflicts
+    mapfile -t conflicts < <(get_conflicts "$package")
+
+    # 2. Resolve each conflict
+    for dest in "${conflicts[@]}"; do
+        local src="$package_dir/${dest#$HOME/}"
+
+        if ! resolve_conflict "$src" "$dest"; then
+            color_echo "$YELLOW" "Skipping $dest due to unresolved conflict"
+        fi
+    done
+
+    # 3. Safely stow
     stow --verbose=1 --target="$HOME" --dir="$DOTFILES_DIR" "$package"
-    
+
     color_echo "$GREEN" "Installed package: $package"
 }
 

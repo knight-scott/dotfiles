@@ -24,3 +24,4 @@ color_echo "$GREEN" "Essential XFCE4 settings backed up to dotfiles"
 
 # === TODO ===
 # add other DE for versitility
+# add more explanation or README

@@ -79,7 +79,7 @@ Some machine-specific or runtime files are ignored via .gitignore:
 ## Notes
 
 - Keep system-specific scripts in `framework-setup`, not here
-- Use this repo for **protable preferences** only
+- Use this repo for **portable preferences** only
 - `install.sh` is safe to run multiple times (idempotent)
 
 ---

@@ -55,6 +55,32 @@ backup_if_exists() {
     if [ -e "$target" ] && [ ! -L "$target" ]; then
         local backup="${target}.backup-$(date +%Y%m%d%H%M%S)"
         color_echo "$YELLOW" "Backing up existing $target to $backup"
-        sudo mv "$target" "$backup"
+        mv "$target" "$backup"
+    fi
+}
+
+# check_stow: Ensures GNU Stow is installed on the system
+check_stow() {
+    if ! command -v stow &> /dev/null; then
+        color_echo "$RED" "GNU Stow is not installed!"
+        color_echo "$CYAN" "Install it with:"
+        #color_echo "$CYAN" "  macOS: brew install stow"
+        #color_echo "$CYAN" "  Ubuntu/Debian: sudo apt install stow"
+        color_echo "$CYAN" "  Arch: sudo pacman -S stow"
+        #color_echo "$CYAN" "  RHEL/CentOS: sudo yum install stow"
+        exit 1
+    fi
+}
+
+# check_meld: Ensure meld is installed on the system to perform merge of dotfiles
+check_meld() {
+    if ! command -v meld &> /dev/null; then
+        color_echo "$RED" "Meld is not installed!"
+        color_echo "$CYAN" "Install it with:"
+        #color_echo "$CYAN" "  macOS: brew install meld"
+        #color_echo "$CYAN" "  Ubuntu/Debian: sudo apt install meld"
+        color_echo "$CYAN" "  Arch: sudo pacman -S meld"
+        #color_echo "$CYAN" "  RHEL/CentOS: sudo yum install meld"
+        return 1
     fi
 }
