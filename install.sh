@@ -29,20 +29,6 @@ trap cleanup EXIT
 # Currently must move .bashrc with mv ~/.bashrc ~/.bashrc.bak
 # Add Unix versatility
 
-# List of stow packages to install
-# Each package should have its files organized to mirror the target structure
-STOW_PACKAGES=(
-    "bash"
-    "face"
-    "fastfetch"
-    "git" 
-    "nvim"
-    "starship"
-    "fzf"
-    "bat"
-    "htop"
-)
-
 # backup_conflicts: Backs up any existing files that would conflict with stow
 # === TODO ===
 # Fix checks. Presence of .bashrc stops install
@@ -125,6 +111,15 @@ resolve_conflict() {
     done
 }
 
+# discover_packages(): only stow what already exists
+discover_packages() {
+    shopt -s nullglob
+    for dir in "$DOTFILES_DIR"/*/; do
+        basename "$dir"
+    done
+    shopt -u nullglob
+}
+
 # install_stow_package: Installs a single stow package with conflict handling
 install_stow_package() {
     local package=$1
@@ -147,7 +142,10 @@ install_stow_package() {
     done
 
     # 3. Safely stow
+    #color_echo "$BLUE" "DEBUG: Running stow for $package"
+    # change verbose to '1' after debugging
     stow --verbose=1 --target="$HOME" --dir="$DOTFILES_DIR" "$package"
+    #color_echo "$BLUE" "DEBUG: stow exit code: $?"
 
     color_echo "$GREEN" "Installed package: $package"
 }
@@ -155,12 +153,11 @@ install_stow_package() {
 # install_dotfiles: Uses stow to install all configured packages
 install_dotfiles() {
     color_echo "$CYAN" "Installing dotfiles with GNU Stow..."
-    
     check_stow
     
-    for package in "${STOW_PACKAGES[@]}"; do
+    while read -r package; do
         install_stow_package "$package"
-    done
+    done < <(discover_packages)
     
     color_echo "$GREEN" "All dotfiles installed with Stow!"
 }
