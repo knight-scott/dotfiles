@@ -13,198 +13,325 @@
       <property name="icon-size" type="uint" value="0"/>
       <property name="size" type="uint" value="40"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="14"/>
-        <value type="int" value="1"/>
-        <value type="int" value="23"/>
+        <value type="int" value="7"/>
         <value type="int" value="26"/>
-        <value type="int" value="25"/>
         <value type="int" value="24"/>
+        <value type="int" value="25"/>
         <value type="int" value="27"/>
         <value type="int" value="2"/>
+        <value type="int" value="1"/>
         <value type="int" value="3"/>
+        <value type="int" value="22"/>
+        <value type="int" value="23"/>
         <value type="int" value="4"/>
         <value type="int" value="5"/>
         <value type="int" value="6"/>
-        <value type="int" value="8"/>
-        <value type="int" value="9"/>
-        <value type="int" value="10"/>
         <value type="int" value="11"/>
         <value type="int" value="12"/>
         <value type="int" value="13"/>
-        <value type="int" value="7"/>
+        <value type="int" value="36"/>
+        <value type="int" value="14"/>
       </property>
-      <property name="enable-struts" type="bool" value="true"/>
-      <property name="leave-opacity" type="uint" value="98"/>
       <property name="background-style" type="uint" value="0"/>
     </property>
     <property name="panel-2" type="empty">
-      <property name="autohide-behavior" type="uint" value="1"/>
-      <property name="position" type="string" value="p=10;x=0;y=0"/>
-      <property name="length" type="uint" value="1"/>
-      <property name="position-locked" type="bool" value="true"/>
-      <property name="size" type="uint" value="60"/>
+      <property name="position" type="string" value="p=12;x=1065;y=2559"/>
+      <property name="size" type="uint" value="48"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="length" type="double" value="15.625"/>
       <property name="plugin-ids" type="array">
-        <value type="int" value="15"/>
         <value type="int" value="16"/>
+        <value type="int" value="15"/>
+        <value type="int" value="10"/>
         <value type="int" value="17"/>
         <value type="int" value="18"/>
         <value type="int" value="19"/>
-        <value type="int" value="20"/>
         <value type="int" value="21"/>
+        <value type="int" value="8"/>
       </property>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="position-locked" type="bool" value="false"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.10196078431372549"/>
+        <value type="double" value="0.10588235294117647"/>
+        <value type="double" value="0.14901960784313725"/>
+        <value type="double" value="0.94999999999999996"/>
+      </property>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="100"/>
     </property>
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-2" type="string" value="tasklist">
       <property name="grouping" type="uint" value="1"/>
-      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="false"/>
       <property name="show-handle" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="1"/>
     </property>
     <property name="plugin-3" type="string" value="separator">
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="false"/>
+      <property name="numbering" type="bool" value="false"/>
+      <property name="workspace-scrolling" type="bool" value="true"/>
+      <property name="wrap-workspaces" type="bool" value="false"/>
+    </property>
     <property name="plugin-5" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
-      <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="wi-fi network connection “invitado” active: invitado (60%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (89%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (88%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (68%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (77%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (77%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (75%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (78%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (80%)"/>
+        <value type="string" value="wi-fi network connection “pager_mgmnt” active: pager_mgmnt (83%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (70%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (73%)"/>
+        <value type="string" value="wi-fi network connection “pager_mgmnt” active: pager_mgmnt (75%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (65%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “pager_mgmnt” active: pager_mgmnt (83%)"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (65%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (70%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (77%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (73%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (75%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (89%)&#xA;vpn connection active"/>
+        <value type="string" value="configuring wi-fi network connection “pixel_9400”…"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (77%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (72%)"/>
+        <value type="string" value="configuring wi-fi network connection “invitado”…"/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (76%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (80%)&#xA;vpn connection active"/>
+        <value type="string" value="wi-fi network connection “wi-fi_open” active: wi-fi_open (86%)"/>
+        <value type="string" value="wi-fi network connection “wi-fi_open” active: wi-fi_open (100%)"/>
+        <value type="string" value="wi-fi network connection “pixel_9400” active: pixel_9400 (67%)&#xA;vpn connection active"/>
         <value type="string" value="no network connection"/>
-        <value type="string" value="wi-fi network connection “new 802-11-wireless connection” active: gay (74%)"/>
-        <value type="string" value="wi-fi network connection “new 802-11-wireless connection” active: gay (85%)"/>
-        <value type="string" value="wi-fi network connection “new 802-11-wireless connection” active: gay (79%)"/>
-        <value type="string" value="wi-fi network connection “new 802-11-wireless connection” active: gay (80%)"/>
-        <value type="string" value="ethernet network connection “wired connection 1” active"/>
-        <value type="string" value="firewall-applet"/>
-        <value type="string" value=""/>
+        <value type="string" value="wi-fi network connection “gay” active: gay (63%)"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
-        <value type="string" value="firewall-applet"/>
+        <value type="string" value="chrome_status_icon_1"/>
       </property>
     </property>
-    <property name="plugin-8" type="string" value="pulseaudio">
-      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="show-notifications" type="bool" value="true"/>
-    </property>
-    <property name="plugin-9" type="string" value="power-manager-plugin"/>
-    <property name="plugin-10" type="string" value="notification-plugin"/>
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-12" type="string" value="clock">
-      <property name="digital-date-font" type="string" value="Sans 14"/>
-      <property name="digital-time-font" type="string" value="Sans 14"/>
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="JetBrainsMonoNL Nerd Font Propo Ultra-Bold Italic 11"/>
     </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="false"/>
     </property>
-    <property name="plugin-15" type="string" value="showdesktop"/>
-    <property name="plugin-16" type="string" value="separator"/>
+    <property name="plugin-14" type="string" value="actions">
+      <property name="items" type="array">
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+logout"/>
+        <value type="string" value="+restart"/>
+        <value type="string" value="+suspend"/>
+        <value type="string" value="+shutdown"/>
+        <value type="string" value="+separator"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+      <property name="appearance" type="uint" value="0"/>
+    </property>
+    <property name="plugin-7" type="string" value="whiskermenu">
+      <property name="view-mode" type="int" value="2"/>
+      <property name="position-commands-alternate" type="bool" value="false"/>
+      <property name="position-search-alternate" type="bool" value="false"/>
+      <property name="position-profile-alternate" type="bool" value="false"/>
+      <property name="position-categories-alternate" type="bool" value="true"/>
+      <property name="position-categories-horizontal" type="bool" value="false"/>
+      <property name="profile-shape" type="int" value="0"/>
+      <property name="show-button-icon" type="bool" value="true"/>
+      <property name="show-button-title" type="bool" value="false"/>
+      <property name="button-single-row" type="bool" value="false"/>
+      <property name="menu-height" type="int" value="600"/>
+      <property name="launcher-icon-size" type="int" value="2"/>
+      <property name="category-icon-size" type="int" value="2"/>
+      <property name="recent" type="array">
+        <value type="string" value="bitwarden.desktop"/>
+        <value type="string" value="burpsuite.desktop"/>
+        <value type="string" value="athena-burpsuite.desktop"/>
+        <value type="string" value="brave-browser.desktop"/>
+        <value type="string" value="athena-above.desktop"/>
+        <value type="string" value="xfce-ui-settings.desktop"/>
+        <value type="string" value="xfce-mouse-settings.desktop"/>
+      </property>
+      <property name="launcher-show-name" type="bool" value="true"/>
+      <property name="launcher-show-description" type="bool" value="false"/>
+      <property name="hover-switch-category" type="bool" value="true"/>
+      <property name="default-category" type="int" value="0"/>
+      <property name="sort-categories" type="bool" value="true"/>
+      <property name="favorites" type="array">
+        <value type="string" value="athena-welcome.desktop"/>
+        <value type="string" value="brave-browser.desktop"/>
+        <value type="string" value="virtualbox.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-9" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16972810932.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-8" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16972815053.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-10" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16972816226.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-15" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16972816125.desktop"/>
+      </property>
+    </property>
+    <property name="plugin-16" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="16972815964.desktop"/>
+      </property>
+    </property>
     <property name="plugin-17" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17329792881.desktop"/>
+        <value type="string" value="16972816637.desktop"/>
       </property>
     </property>
     <property name="plugin-18" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17329792882.desktop"/>
+        <value type="string" value="16972816788.desktop"/>
       </property>
     </property>
     <property name="plugin-19" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17329792883.desktop"/>
+        <value type="string" value="16972816909.desktop"/>
       </property>
     </property>
     <property name="plugin-20" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="17329792884.desktop"/>
+        <value type="string" value="169728170410.desktop"/>
       </property>
     </property>
-    <property name="plugin-21" type="string" value="separator"/>
-    <property name="plugin-1" type="string" value="whiskermenu">
-      <property name="view-mode" type="int" value="2"/>
-      <property name="profile-shape" type="int" value="0"/>
-      <property name="favorites-in-recent" type="bool" value="true"/>
-      <property name="show-command-menueditor" type="bool" value="false"/>
-      <property name="show-command-profile" type="bool" value="false"/>
-      <property name="favorites" type="array">
-        <value type="string" value="xfce4-file-manager.desktop"/>
-        <value type="string" value="xfce4-terminal-emulator.desktop"/>
-        <value type="string" value="firefox.desktop"/>
-        <value type="string" value="eos-quickstart.desktop"/>
-        <value type="string" value="welcome.desktop"/>
-        <value type="string" value="eos-apps-info.desktop"/>
-      </property>
-      <property name="position-categories-alternate" type="bool" value="true"/>
-      <property name="position-profile-alternate" type="bool" value="true"/>
-      <property name="position-search-alternate" type="bool" value="true"/>
-      <property name="show-button-title" type="bool" value="true"/>
-      <property name="button-title" type="string" value="Knight&apos;s  Gambit"/>
-      <property name="button-icon" type="string" value="/usr/share/pixmaps/knight.png"/>
-      <property name="show-button-icon" type="bool" value="true"/>
-      <property name="button-single-row" type="bool" value="false"/>
-      <property name="menu-height" type="int" value="718"/>
-      <property name="menu-opacity" type="int" value="98"/>
-      <property name="recent" type="array">
-        <value type="string" value="code-oss.desktop"/>
-        <value type="string" value="xfce4-settings-editor.desktop"/>
-        <value type="string" value="xfce-display-settings.desktop"/>
-        <value type="string" value="eos-quickstart.desktop"/>
-        <value type="string" value="xfce4-terminal-emulator.desktop"/>
-        <value type="string" value="org.gnome.FileRoller.desktop"/>
-        <value type="string" value="xfce4-file-manager.desktop"/>
-      </property>
-      <property name="launcher-icon-size" type="int" value="3"/>
-      <property name="category-icon-size" type="int" value="3"/>
-      <property name="menu-width" type="int" value="711"/>
-      <property name="command-logout" type="string" value="/usr/bin/xfce4-session-logout"/>
-    </property>
-    <property name="plugin-7" type="string" value="actions">
-      <property name="button-title" type="uint" value="0"/>
-      <property name="custom-title" type="string" value=""/>
-      <property name="appearance" type="uint" value="1"/>
+    <property name="plugin-21" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="+lock-screen"/>
-        <value type="string" value="-switch-user"/>
-        <value type="string" value="-separator"/>
-        <value type="string" value="-suspend"/>
-        <value type="string" value="-hibernate"/>
-        <value type="string" value="-hybrid-sleep"/>
-        <value type="string" value="-separator"/>
-        <value type="string" value="-shutdown"/>
-        <value type="string" value="-restart"/>
-        <value type="string" value="-separator"/>
-        <value type="string" value="+logout"/>
-        <value type="string" value="-logout-dialog"/>
+        <value type="string" value="169728172411.desktop"/>
       </property>
     </property>
-    <property name="plugin-14" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-      <property name="expand" type="bool" value="false"/>
+    <property name="plugin-22" type="string" value="cpugraph">
+      <property name="update-interval" type="int" value="0"/>
+      <property name="time-scale" type="int" value="0"/>
+      <property name="size" type="int" value="128"/>
+      <property name="mode" type="int" value="1"/>
+      <property name="color-mode" type="int" value="1"/>
+      <property name="frame" type="int" value="0"/>
+      <property name="border" type="int" value="0"/>
+      <property name="bars" type="int" value="1"/>
+      <property name="per-core" type="int" value="0"/>
+      <property name="tracked-core" type="int" value="0"/>
+      <property name="in-terminal" type="int" value="1"/>
+      <property name="startup-notification" type="int" value="0"/>
+      <property name="load-threshold" type="int" value="0"/>
+      <property name="smt-stats" type="int" value="0"/>
+      <property name="smt-issues" type="int" value="0"/>
+      <property name="per-core-spacing" type="int" value="1"/>
+      <property name="command" type="string" value=""/>
+      <property name="background" type="array">
+        <value type="double" value="1"/>
+        <value type="double" value="1"/>
+        <value type="double" value="1"/>
+        <value type="double" value="0"/>
+      </property>
+      <property name="foreground-1" type="array">
+        <value type="double" value="0"/>
+        <value type="double" value="1"/>
+        <value type="double" value="0"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="foreground-2" type="array">
+        <value type="double" value="1"/>
+        <value type="double" value="0"/>
+        <value type="double" value="0"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="foreground-3" type="array">
+        <value type="double" value="0"/>
+        <value type="double" value="0"/>
+        <value type="double" value="1"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="smt-issues-color" type="array">
+        <value type="double" value="0.90000000000000002"/>
+        <value type="double" value="0"/>
+        <value type="double" value="0"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="foreground-system" type="array">
+        <value type="double" value="0.90000000000000002"/>
+        <value type="double" value="0.10000000000000001"/>
+        <value type="double" value="0.10000000000000001"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="foreground-user" type="array">
+        <value type="double" value="0.10000000000000001"/>
+        <value type="double" value="0.40000000000000002"/>
+        <value type="double" value="0.90000000000000002"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="foreground-nice" type="array">
+        <value type="double" value="0.90000000000000002"/>
+        <value type="double" value="0.80000000000000004"/>
+        <value type="double" value="0.20000000000000001"/>
+        <value type="double" value="1"/>
+      </property>
+      <property name="foreground-iowait" type="array">
+        <value type="double" value="0.20000000000000001"/>
+        <value type="double" value="0.90000000000000002"/>
+        <value type="double" value="0.40000000000000002"/>
+        <value type="double" value="1"/>
+      </property>
     </property>
     <property name="plugin-23" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-24" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="17329953093.desktop"/>
-      </property>
+    <property name="plugin-24" type="string" value="showdesktop"/>
+    <property name="plugin-25" type="string" value="directorymenu">
+      <property name="base-directory" type="string" value="/home/0x4b"/>
     </property>
-    <property name="plugin-25" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="17329952992.desktop"/>
-      </property>
-    </property>
-    <property name="plugin-26" type="string" value="launcher">
-      <property name="items" type="array">
-        <value type="string" value="17329952831.desktop"/>
-      </property>
+    <property name="plugin-26" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-27" type="string" value="separator">
-      <property name="style" type="uint" value="2"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-35" type="empty"/>
+    <property name="plugin-36" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="known-players" type="string" value="Brave;Chromium"/>
+    </property>
+    <property name="plugin-1" type="string" value="launcher">
+      <property name="items" type="array">
+        <value type="string" value="17703551981.desktop"/>
+      </property>
     </property>
   </property>
 </channel>
