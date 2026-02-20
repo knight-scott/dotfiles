@@ -74,7 +74,7 @@ resolve_conflict() {
         color_echo "$YELLOW" "Conflict detected: $dest"
         echo
         color_echo "$CYAN" "[R]eplace [S]kip  [V]iew diff [M]erge [A]bort"
-        read -rp "> " choice
+        read -rp "> " choice < /dev/tty
 
         case "$choice" in
             R|r)
