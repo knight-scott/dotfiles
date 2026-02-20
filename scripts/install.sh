@@ -4,7 +4,8 @@
 # Sets up community plugins and special handling for Obsidian LiveSync plugin.
 
 set -euo pipefail
-set -x
+# Debug
+# set -x
 source "$(dirname "$0")/lib.sh"  # Import shared functions
 
 # Trap errors and call the centralized error handler
