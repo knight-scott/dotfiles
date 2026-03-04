@@ -103,7 +103,7 @@ alias unlock="sudo rm /var/lib/pacman/db.lck"
 alias pyserver='python3 -m http.server'
 
 #continue download
-alias wget="wget -c"
+#alias wget="wget -c"
 
 #userlist
 alias userlist="cut -d: -f1 /etc/passwd"
@@ -414,9 +414,6 @@ alias updte='sudo pacman -Syyu'
 alias updqte='sudo pacman -Syyu'
 alias upqll='paru -Syu --noconfirm'
 alias upal='paru -Syu --noconfirm'
-
-# VPN setup
-alias proton='protonvpn connect'
 
 # Development
 alias pager='ssh root@172.16.52.1'
